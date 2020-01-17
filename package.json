@@ -41,7 +41,7 @@
     "bootstrap": "3.4.1",
     "bpmn-font": "0.8.0",
     "bpmn-js": "3.4.3",
-    "camunda-bpm-sdk-js": "git://github.com/camunda/camunda-bpm-sdk-js#7.12.1",
+    "camunda-bpm-sdk-js": "git+https://github.com/Akimyou/camunda-bpm-sdk-js.git#feature/moment-tz",
     "clipboard": "2.0.4",
     "cmmn-js": "0.18.1",
     "dmn-js": "6.3.3",

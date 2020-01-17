@@ -16,27 +16,14 @@
  */
 
 'use strict';
-var fs = require('fs');
 
-var template = fs.readFileSync(__dirname + '/cam-widget-footer.html', 'utf8');
-var moment = require('../../../vendor/moment-tz');
+var moment = require('camunda-bpm-sdk-js/vendor/moment-tz');
 
-module.exports = [
-  function() {
-    return {
-      template: template,
-      scope: {
-        version: '@',
-        momentTz: '@'
-      },
-      link: function($scope) {
-        $scope.timezoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+try {
+  var timezone = localStorage.getItem('camunda-web-timezone');
+  moment.tz.setDefault(timezone);
+} catch (error) {
+  moment.tz.setDefault();
+}
 
-        $scope.momentTzTime = '';
-        if ($scope.momentTz) {
-          $scope.momentTzTime = moment().format();
-        }
-      }
-    };
-  }
-];
+module.exports = moment;
